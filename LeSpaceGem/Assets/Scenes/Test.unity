@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 698159930}
   - component: {fileID: 698159929}
   - component: {fileID: 698159931}
+  - component: {fileID: 698159932}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -503,6 +504,10 @@ MonoBehaviour:
   ETBar: {fileID: 1131825218}
   speed: 5
   rb: {fileID: 698159929}
+  timerText: {fileID: 0}
+  countDown: 1
+  hasLimit: 0
+  timerLimit: 0
 --- !u!61 &698159931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -548,6 +553,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &698159932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698159926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d8f06d6a7931d4bad78aca81d613b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: 1
+  Amount: 7
+  Tries: 6
+  hasDied: 0
 --- !u!1 &945796574
 GameObject:
   m_ObjectHideFlags: 0

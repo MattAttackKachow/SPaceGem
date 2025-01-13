@@ -6,11 +6,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int ET;
+    public float ET;
     public TextMeshProUGUI ETBar;
     public float speed;
 
     public Rigidbody2D rb;
+
+    [Header("Component")]
+    public TextMeshProUGUI timerText;
+
+    [Header("Timer Settings")]
+    public bool countDown;
+
+    [Header("Limit Settings")]
+    public bool hasLimit;
+    public float timerLimit;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +33,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ET = countDown ? ET -= Time.deltaTime : ET += Time.deltaTime;
 
-        ETBar.text = ET.ToString("0" + " Percent Entertained");
+        SetTimerText();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            ET++;
             rb.AddForce(transform.up * 50);
         }
 
@@ -63,5 +77,9 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -speed);
 
         }
+    }
+    private void SetTimerText()
+    {
+        ETBar.text = ET.ToString("0" + " Percent Entertained");
     }
 }
