@@ -720,31 +720,14 @@ GameObject:
   - component: {fileID: 395124896}
   - component: {fileID: 395124895}
   - component: {fileID: 395124894}
-  - component: {fileID: 395124893}
+  - component: {fileID: 395124897}
   m_Layer: 0
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &395124893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395124892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87b7d4f22a2b2749a52d2320c5f32ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 109280948}
-  cardPrefab: {fileID: 5810419044391915970, guid: 4fa41387c306d684abeb7cbf47e39e4e, type: 3}
-  cardSpeed: 10
-  coolDown: 1
-  currentCoolDown: 0
 --- !u!61 &395124894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -859,6 +842,41 @@ Transform:
   - {fileID: 1968353059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &395124897
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395124892}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.11
 --- !u!1 &588787814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1616,13 @@ MonoBehaviour:
   AlreadyRead: 0
   Bok: {fileID: 996106800}
   Read: {fileID: 1304144086}
+  COn: 0
+  CardTries: 52
+  spawnPoint: {fileID: 395124896}
+  cardPrefab: {fileID: 5810419044391915970, guid: 4fa41387c306d684abeb7cbf47e39e4e, type: 3}
+  cardSpeed: 20
+  coolDown: 0
+  currentCoolDown: 0
 --- !u!212 &953578875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3458,7 +3483,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1550662794, guid: 4b0ceab9f3ff27a4c932cb2b271eea71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
