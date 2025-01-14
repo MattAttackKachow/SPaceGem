@@ -127,25 +127,28 @@ public class PlayerController : MonoBehaviour
 
 
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+
+            playerOff = false;
+            BOn = false;
+            Bok.SetActive(false);
+            AlreadyRead = true;
+        }
         if (BOn == true)
         {
             if (AlreadyRead == false)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    ET += 10;
                     playerOff = true;
                     Bok.SetActive(true);
                    
 
                 }
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    ET += 10;
-                    playerOff = false;
-                    BOn = false;
-                    Bok.SetActive(false);
-                    AlreadyRead = true;
-                }
+               
             }
 
             if (AlreadyRead == true) 
