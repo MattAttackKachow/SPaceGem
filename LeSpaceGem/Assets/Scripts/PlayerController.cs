@@ -172,6 +172,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "RussianR")
         {
             RROn = false;
+            Read.SetActive(false);
         }
         if (other.tag == "Book")
         {
