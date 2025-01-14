@@ -67,6 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             ET = 100;
         }
+
+        if (ET <= 0)
+        {
+            SceneManager.LoadScene("BoreDomDeath");
+        }
         ET = countDown ? ET -= Time.deltaTime : ET += Time.deltaTime;
         currentCoolDown = coolDown;
 

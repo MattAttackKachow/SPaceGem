@@ -545,6 +545,16 @@ MonoBehaviour:
   Tries: 6
   hasDied: 0
   BOn: 0
+  AlreadyRead: 0
+  Bok: {fileID: 0}
+  Read: {fileID: 0}
+  COn: 0
+  CardTries: 0
+  spawnPoint: {fileID: 0}
+  cardPrefab: {fileID: 0}
+  cardSpeed: 20
+  coolDown: 0
+  currentCoolDown: 0
 --- !u!61 &698159931
 BoxCollider2D:
   m_ObjectHideFlags: 0
