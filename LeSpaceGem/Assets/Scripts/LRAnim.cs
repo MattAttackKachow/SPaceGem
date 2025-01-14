@@ -16,13 +16,13 @@ public class LRAnim : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             Anim.SetTrigger("Right");
-            Debug.Log("Going right");
+            
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             Anim.SetTrigger("Left");
-            Debug.Log("Going left");
+            
         }
 
     }
