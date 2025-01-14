@@ -11,15 +11,8 @@ public class RussianRoulette : MonoBehaviour
     public int Tries;
     public bool hasDied;
 
-    public int theKnumber;
-
     // Start is called before the first frame update
-    public void Awake()
-    {
-        int randomNumber = Random.Range(Bullet, Amount);
-
-        theKnumber = randomNumber;
-    }
+  
    
     void Start()
     {
@@ -33,12 +26,18 @@ public class RussianRoulette : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                int randomNumber = Random.Range(Bullet, Amount);
                 --Tries;
-                Debug.Log("THe number is" + " " + theKnumber);
-                if (theKnumber == 6) 
+                Debug.Log("THe number is" + " " + randomNumber);
+                if (randomNumber == 6) 
                 {
                     SceneManager.LoadScene("GameOver");
 
+                }
+
+                if (Tries == 0)
+                {
+                    SceneManager.LoadScene("GameOver");
                 }
 
             }

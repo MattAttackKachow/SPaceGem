@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
+
     public float ET;
     public TextMeshProUGUI ETBar;
     public float speed;
@@ -22,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
 
+    public bool InMiniG;
+
 
 
     // Start is called before the first frame update
@@ -37,44 +42,34 @@ public class PlayerController : MonoBehaviour
 
         SetTimerText();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ET++;
-            rb.AddForce(transform.up * 50);
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rb.velocity = new Vector2( rb.velocity.x, speed);
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
+        if (InMiniG == false) 
         {
 
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, speed);
 
-        if (!Input.GetKeyDown(KeyCode.A))
-        {
+            }
 
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-
-        if (!Input.GetKeyDown(KeyCode.D))
-        {
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+            }
 
 
-        }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -speed);
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -speed);
+
+            }
 
         }
     }
