@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.tag == "Book")
         {
-           
+            BOn = false;
             Read.SetActive(false);
         }
 
