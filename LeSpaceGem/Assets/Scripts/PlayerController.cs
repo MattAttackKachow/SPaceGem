@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
@@ -26,6 +27,14 @@ public class PlayerController : MonoBehaviour
     public float timerLimit;
 
     public bool InMiniG;
+    public GameObject PressE;
+
+    [Header("Russian Rol")]
+    public bool RROn;
+    public int Bullet;
+    public int Amount;
+    public int Tries;
+    public bool hasDied;
 
 
 
@@ -72,7 +81,51 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
+        if (RROn == true) 
+        {
+       
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    ET += 50;
+                    int randomNumber = Random.Range(Bullet, Amount);
+                    --Tries;
+                    Debug.Log("THe number is" + " " + randomNumber);
+                    if (randomNumber == 6)
+                    {
+                        SceneManager.LoadScene("GameOver");
+
+                    }
+
+                    if (Tries == 0)
+                    {
+                        SceneManager.LoadScene("GameOver");
+                    }
+
+                }
+            
+
+        }
     }
+
+      public void OnTriggerStay2D(Collider2D other)
+    {
+        PressE.SetActive(true);
+        if (other.tag == "RussianR") 
+        {
+            RROn = true;
+        }
+      }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        PressE.SetActive(false);
+        if (other.tag == "RussianR")
+        {
+            RROn = false;
+        }
+    }
+
     private void SetTimerText()
     {
         ETBar.text = ET.ToString("0" + " Percent Entertained");
