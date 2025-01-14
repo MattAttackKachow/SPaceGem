@@ -39,6 +39,19 @@ public class PlayerController : MonoBehaviour
     public GameObject Bok;
     public GameObject Read;
 
+    [Header("Cards")]
+    public bool COn;
+    public int CardTries;
+    public Transform spawnPoint;
+    public GameObject cardPrefab;
+
+    public float cardSpeed = 20f;
+
+    public float coolDown;
+
+    public float currentCoolDown;
+
+
 
 
     // Start is called before the first frame update
@@ -55,6 +68,7 @@ public class PlayerController : MonoBehaviour
             ET = 100;
         }
         ET = countDown ? ET -= Time.deltaTime : ET += Time.deltaTime;
+        currentCoolDown = coolDown;
 
         SetTimerText();
 
@@ -94,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                ET += 50;
+                
                 int randomNumber = Random.Range(Bullet, Amount);
                 --Tries;
                 Debug.Log("THe number is" + " " + randomNumber);
@@ -149,6 +163,27 @@ public class PlayerController : MonoBehaviour
 
           }
 
+        if (COn == true)
+        {
+            if (CardTries >= 0)
+            {
+
+
+
+                if (Input.GetKeyDown(KeyCode.E) && currentCoolDown <= 0f)
+                {
+                    Spawn();
+                    ET++;
+                    currentCoolDown -= Time.deltaTime;
+
+                    
+                }
+            }
+      
+
+           
+        }
+
        }
 
       public void OnTriggerStay2D(Collider2D other)
@@ -163,6 +198,11 @@ public class PlayerController : MonoBehaviour
         {
             BOn = true;
            
+        }
+
+        if (other.tag == "Table")
+        {
+            COn = true;
         }
     }
 
@@ -180,12 +220,24 @@ public class PlayerController : MonoBehaviour
             Read.SetActive(false);
         }
 
+        if (other.tag == "Table")
+        {
+            COn = false;
+        }
+
 
 
     }
 
+
     private void SetTimerText()
     {
         ETBar.text = ET.ToString("0" + " Percent Entertained");
+    }
+    void Spawn()
+    {
+        GameObject card = Instantiate(cardPrefab, spawnPoint.position, spawnPoint.rotation);
+        Rigidbody2D rb = card.GetComponent<Rigidbody2D>();
+        rb.AddForce(spawnPoint.up * cardSpeed, ForceMode2D.Impulse);
     }
 }

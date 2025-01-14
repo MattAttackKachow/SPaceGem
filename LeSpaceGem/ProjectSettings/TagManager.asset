@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RussianR
   - Book
+  - Table
   layers:
   - Default
   - TransparentFX
