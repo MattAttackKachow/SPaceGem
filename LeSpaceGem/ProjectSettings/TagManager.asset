@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - RussianR
+  - Book
   layers:
   - Default
   - TransparentFX

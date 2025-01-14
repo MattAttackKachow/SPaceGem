@@ -16,9 +16,6 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    [Header("Component")]
-    public TextMeshProUGUI timerText;
-
     [Header("Timer Settings")]
     public bool countDown;
 
@@ -26,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
 
-    public bool InMiniG;
+    public bool playerOff;
     public GameObject PressE;
 
     [Header("Russian Rol")]
@@ -36,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public int Tries;
     public bool hasDied;
 
+    [Header("Book")]
+    public bool BOn;
 
 
     // Start is called before the first frame update
@@ -51,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         SetTimerText();
 
-        if (InMiniG == false) 
+        if (playerOff == false) 
         {
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -106,7 +105,24 @@ public class PlayerController : MonoBehaviour
             
 
         }
-    }
+        if (BOn == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                playerOff = true;
+
+              
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                playerOff = false;
+                BOn = false;
+            }
+
+
+            }
+
+        }
 
       public void OnTriggerStay2D(Collider2D other)
     {
@@ -115,7 +131,12 @@ public class PlayerController : MonoBehaviour
         {
             RROn = true;
         }
-      }
+
+        if (other.tag == "Book")
+        {
+            BOn = true;
+        }
+    }
 
     public void OnTriggerExit2D(Collider2D other)
     {
@@ -124,6 +145,13 @@ public class PlayerController : MonoBehaviour
         {
             RROn = false;
         }
+
+        if (other.tag == "Book")
+        {
+            BOn = false;
+            playerOff = false;
+        }
+
     }
 
     private void SetTimerText()
