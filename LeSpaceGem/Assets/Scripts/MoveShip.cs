@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveShip : MonoBehaviour
 {
     public float speed;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
