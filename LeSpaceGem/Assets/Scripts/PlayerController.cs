@@ -16,9 +16,6 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    [Header("Component")]
-    public TextMeshProUGUI timerText;
-
     [Header("Timer Settings")]
     public bool countDown;
 
@@ -26,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
 
-    public bool InMiniG;
+    public bool playerOff;
     public GameObject PressE;
 
     [Header("Russian Rol")]
@@ -35,6 +32,12 @@ public class PlayerController : MonoBehaviour
     public int Amount;
     public int Tries;
     public bool hasDied;
+
+    [Header("Book")]
+    public bool BOn;
+    public bool AlreadyRead;
+    public GameObject Bok;
+    public GameObject Read;
 
 
 
@@ -47,11 +50,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ET >= 100)
+        {
+            ET = 100;
+        }
         ET = countDown ? ET -= Time.deltaTime : ET += Time.deltaTime;
 
         SetTimerText();
 
-        if (InMiniG == false) 
+        if (playerOff == false) 
         {
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -84,29 +91,65 @@ public class PlayerController : MonoBehaviour
 
         if (RROn == true) 
         {
-       
-                if (Input.GetKeyDown(KeyCode.E))
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ET += 50;
+                int randomNumber = Random.Range(Bullet, Amount);
+                --Tries;
+                Debug.Log("THe number is" + " " + randomNumber);
+                if (randomNumber == 6)
                 {
-                    ET += 50;
-                    int randomNumber = Random.Range(Bullet, Amount);
-                    --Tries;
-                    Debug.Log("THe number is" + " " + randomNumber);
-                    if (randomNumber == 6)
-                    {
-                        SceneManager.LoadScene("GameOver");
-
-                    }
-
-                    if (Tries == 0)
-                    {
-                        SceneManager.LoadScene("GameOver");
-                    }
+                    SceneManager.LoadScene("GameOver");
 
                 }
-            
+
+                if (Tries == 0)
+                {
+                    SceneManager.LoadScene("GameOver");
+                }
+
+            }
+
 
         }
-    }
+        if (BOn == true)
+        {
+            if (AlreadyRead == false)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    playerOff = true;
+                    Bok.SetActive(true);
+                   
+
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    ET += 10;
+                    playerOff = false;
+                    BOn = false;
+                    Bok.SetActive(false);
+                    AlreadyRead = true;
+                }
+            }
+
+            if (AlreadyRead == true) 
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Read.SetActive(true);
+
+
+                }
+         
+            
+            }
+
+
+          }
+
+       }
 
       public void OnTriggerStay2D(Collider2D other)
     {
@@ -115,7 +158,13 @@ public class PlayerController : MonoBehaviour
         {
             RROn = true;
         }
-      }
+
+        if (other.tag == "Book")
+        {
+            BOn = true;
+           
+        }
+    }
 
     public void OnTriggerExit2D(Collider2D other)
     {
@@ -123,7 +172,16 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "RussianR")
         {
             RROn = false;
+            Read.SetActive(false);
         }
+        if (other.tag == "Book")
+        {
+           
+            Read.SetActive(false);
+        }
+
+
+
     }
 
     private void SetTimerText()
