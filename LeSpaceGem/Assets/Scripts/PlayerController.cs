@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Book")]
     public bool BOn;
+    public bool AlreadyRead;
+    public GameObject Bok;
+    public GameObject Read;
+
 
 
     // Start is called before the first frame update
@@ -46,6 +50,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ET >= 100)
+        {
+            ET = 100;
+        }
         ET = countDown ? ET -= Time.deltaTime : ET += Time.deltaTime;
 
         SetTimerText();
@@ -83,46 +91,65 @@ public class PlayerController : MonoBehaviour
 
         if (RROn == true) 
         {
-       
-                if (Input.GetKeyDown(KeyCode.E))
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ET += 50;
+                int randomNumber = Random.Range(Bullet, Amount);
+                --Tries;
+                Debug.Log("THe number is" + " " + randomNumber);
+                if (randomNumber == 6)
                 {
-                    ET += 50;
-                    int randomNumber = Random.Range(Bullet, Amount);
-                    --Tries;
-                    Debug.Log("THe number is" + " " + randomNumber);
-                    if (randomNumber == 6)
-                    {
-                        SceneManager.LoadScene("GameOver");
-
-                    }
-
-                    if (Tries == 0)
-                    {
-                        SceneManager.LoadScene("GameOver");
-                    }
+                    SceneManager.LoadScene("GameOver");
 
                 }
-            
+
+                if (Tries == 0)
+                {
+                    SceneManager.LoadScene("GameOver");
+                }
+
+            }
+
 
         }
         if (BOn == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (AlreadyRead == false)
             {
-                playerOff = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    playerOff = true;
+                    Bok.SetActive(true);
+                   
 
-              
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    ET += 10;
+                    playerOff = false;
+                    BOn = false;
+                    Bok.SetActive(false);
+                    AlreadyRead = true;
+                }
             }
-            if (Input.GetKeyDown(KeyCode.Escape))
+
+            if (AlreadyRead == true) 
             {
-                playerOff = false;
-                BOn = false;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Read.SetActive(true);
+
+
+                }
+         
+            
             }
 
 
-            }
+          }
 
-        }
+       }
 
       public void OnTriggerStay2D(Collider2D other)
     {
@@ -135,6 +162,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Book")
         {
             BOn = true;
+           
         }
     }
 
@@ -145,12 +173,13 @@ public class PlayerController : MonoBehaviour
         {
             RROn = false;
         }
-
         if (other.tag == "Book")
         {
-            BOn = false;
-            playerOff = false;
+           
+            Read.SetActive(false);
         }
+
+
 
     }
 
