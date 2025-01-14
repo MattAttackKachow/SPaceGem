@@ -108,11 +108,11 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                
+                ET += 50;
                 int randomNumber = Random.Range(Bullet, Amount);
                 --Tries;
                 Debug.Log("THe number is" + " " + randomNumber);
-                if (randomNumber == 6)
+                if (randomNumber == 5)
                 {
                     SceneManager.LoadScene("GameOver");
 

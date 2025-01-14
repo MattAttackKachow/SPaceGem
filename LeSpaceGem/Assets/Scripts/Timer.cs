@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Timer : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class Timer : MonoBehaviour
     {
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
-        Time.timeScale = 1;
+        Time.timeScale = 2;
 
         SetTimerText();
 
@@ -83,7 +84,16 @@ public class Timer : MonoBehaviour
 
          void SetTimerText()
         {
-            timerText.text = Hour.ToString("0 Hours Until Arrival");
+            if (Hour == 1)
+            {
+                timerText.text = Hour.ToString("0 Hour Until Arrival");
+            }
+
+            else
+            {
+                timerText.text = Hour.ToString("0 Hours Until Arrival");
+            }
+          
         }
 
 
