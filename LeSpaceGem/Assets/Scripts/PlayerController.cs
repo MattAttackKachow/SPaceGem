@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    ET += 10;
+                    ET += 25;
                     playerOff = true;
                     Bok.SetActive(true);
                     AlreadyRead = true;
@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
                 {
                     Spawn();
                     currentCoolDown = coolDown;
-                    ET++;
+                    ET += 5;
                     --CardTries;
             
 
