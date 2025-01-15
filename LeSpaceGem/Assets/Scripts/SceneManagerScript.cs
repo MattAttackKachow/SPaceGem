@@ -8,7 +8,7 @@ public class SceneManagerScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
                 SceneManager.LoadScene("RuneTest"); 
            

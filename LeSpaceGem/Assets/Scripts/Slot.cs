@@ -49,9 +49,9 @@ public class Slot : MonoBehaviour
     public void Press()
     {
         leverDown = false;
-        int row1 = Random.Range(1, 4);
-        int row2 = Random.Range(1, 4);
-        int row3 = Random.Range(1, 4);
+        int row1 = Random.Range(1, 7);
+        int row2 = Random.Range(1, 7);
+        int row3 = Random.Range(1, 7);
 
         //Row1
         if (row1 == 1)

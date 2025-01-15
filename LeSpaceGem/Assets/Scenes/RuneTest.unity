@@ -439,8 +439,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109280947}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.81, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.58, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0784cfca7b0815542a1b441c19dd42a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeedz: 80
+  spinSpeedz: 50
 --- !u!1 &120573520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,12 +2097,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770895519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.3, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.24999999, y: -2.083333, z: 0}
+  m_LocalScale: {x: 0.7333333, y: 0.7333333, z: 0.73333323}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 953578876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!95 &770895522
 Animator:
@@ -2562,10 +2562,10 @@ MonoBehaviour:
   Read: {fileID: 1304144086}
   COn: 0
   CardTries: 52
-  spawnPoint: {fileID: 395124896}
+  spawnPoint: {fileID: 109280948}
   cardPrefab: {fileID: 5810419044391915970, guid: 4fa41387c306d684abeb7cbf47e39e4e, type: 3}
-  cardSpeed: 20
-  coolDown: 0
+  cardSpeed: 5
+  coolDown: 1
   currentCoolDown: 0
   SOn: 0
   leverDown: 0
@@ -2648,6 +2648,7 @@ Transform:
   m_Children:
   - {fileID: 988696731}
   - {fileID: 1419692025}
+  - {fileID: 770895521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &953578878
@@ -4576,7 +4577,6 @@ GameObject:
   - component: {fileID: 1605913635}
   - component: {fileID: 1605913634}
   - component: {fileID: 1605913633}
-  - component: {fileID: 1605913637}
   m_Layer: 0
   m_Name: Slots
   m_TagString: Slots
@@ -4724,40 +4724,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605913632}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2, y: -4.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4666667, y: -2.6733336, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1861995101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1605913637
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605913632}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &1606815495
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,6 +5446,7 @@ Transform:
   - {fileID: 1223543033}
   - {fileID: 120573521}
   - {fileID: 395124896}
+  - {fileID: 1605913636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1861995102
@@ -5487,7 +5461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99e259141ebd954e9e4c91cecbbc2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   rb: {fileID: 1861995103}
 --- !u!50 &1861995103
 Rigidbody2D:
@@ -5501,7 +5475,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -6250,10 +6224,8 @@ SceneRoots:
   - {fileID: 953578876}
   - {fileID: 1861995101}
   - {fileID: 588787816}
-  - {fileID: 770895521}
   - {fileID: 1651686998}
   - {fileID: 2108625930}
   - {fileID: 1261433192}
   - {fileID: 1083748462}
   - {fileID: 1303819596}
-  - {fileID: 1605913636}

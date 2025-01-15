@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     public Transform spawnPoint;
     public GameObject cardPrefab;
 
-    public float cardSpeed = 20f;
+    public float cardSpeed;
 
     public float coolDown;
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("BoreDomDeath");
         }
         ET = countDown ? ET -= Time.deltaTime : ET += Time.deltaTime;
-        currentCoolDown = coolDown;
+        currentCoolDown -= Time.deltaTime;
 
         SetTimerText();
 
@@ -201,8 +201,10 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && currentCoolDown <= 0f)
                 {
                     Spawn();
+                    currentCoolDown = coolDown;
                     ET++;
-                    currentCoolDown -= Time.deltaTime;
+                    --CardTries;
+            
 
                     
                 }

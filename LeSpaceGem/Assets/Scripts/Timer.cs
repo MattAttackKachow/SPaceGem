@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
     {
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
-        Time.timeScale = 2;
+        Time.timeScale = 1;
 
         SetTimerText();
 

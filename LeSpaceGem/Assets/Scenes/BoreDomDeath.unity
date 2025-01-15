@@ -387,7 +387,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Boredome bites at you like small ticks on a dog's fur.\nWith a shaking
-    hand, you reach out for \nthe final solution.\n\nPress any key to restart."
+    hand, you reach out for \nthe final solution.\n\nPress ESCAPE key to restart."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

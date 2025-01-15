@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPointSpin : MonoBehaviour
 {
-    public float spinSpeedz = 0f;
+    public float spinSpeedz = 50f;
 
     // Update is called once per frame
     void Update()
