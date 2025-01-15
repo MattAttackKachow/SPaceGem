@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ET += 50;
+                SOn = false;
                 int randomNumber = Random.Range(Bullet, Amount);
                 --Tries;
                 Debug.Log("THe number is" + " " + randomNumber);
@@ -167,6 +168,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    SOn = false;
                     ET += 25;
                     playerOff = true;
                     Bok.SetActive(true);
@@ -181,6 +183,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Read.SetActive(true);
+                    SOn = false;
 
 
                 }
@@ -200,6 +203,7 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E) && currentCoolDown <= 0f)
                 {
+                    SOn = false;
                     Spawn();
                     currentCoolDown = coolDown;
                     ET += 5;
@@ -212,6 +216,12 @@ public class PlayerController : MonoBehaviour
       
 
            
+        }
+         if (SOn == false)
+        {
+            playerOff = false;
+            SlotsOn.SetActive(false);
+            StopGamb.SetActive(false);
         }
 
 
@@ -310,17 +320,17 @@ public class PlayerController : MonoBehaviour
 
         if(row1 == 1 && row2 == 1 && row3 == 1)
         {
-            ET += 60;
+            ET += 100;
         }
 
         if (row1 == 2 && row2 == 2 && row3 == 2)
         {
-            ET += 60;
+            ET += 100;
         }
 
         if (row1 == 3 && row2 == 3 && row3 == 3)
         {
-            ET += 60;
+            ET += 100;
         }
 
         //Row1
