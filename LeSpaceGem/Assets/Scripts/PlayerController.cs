@@ -303,24 +303,26 @@ public class PlayerController : MonoBehaviour
     public void Press()
     {
         leverDown = false;
-        int row1 = Random.Range(1, 4);
-        int row2 = Random.Range(1, 4);
-        int row3 = Random.Range(1, 4);
+        int row1 = Random.Range(1, 7);
+        int row2 = Random.Range(1, 7);
+        int row3 = Random.Range(1, 7);
 
-        if(row1 == 1 && row2 == 1 && row3 == 1)
+        if(row1 == 1 && row2 == 1 && row3 == 1 && row1 == 6 && row2 == 6 && row3 == 6)
         {
             ET += 20;
         }
 
-        if (row1 == 2 && row2 == 2 && row3 == 2)
+        if (row1 == 2 && row2 == 2 && row3 == 2 && row1 == 5 && row2 == 5 && row3 == 5)
         {
             ET += 20;
         }
 
-        if (row1 == 3 && row2 == 3 && row3 == 3)
+        if (row1 == 3 && row2 == 3 && row3 == 3 && row1 == 4 && row2 == 4 && row3 == 4)
         {
             ET += 20;
         }
+
+
 
         //Row1
         if (row1 == 1)
@@ -386,6 +388,73 @@ public class PlayerController : MonoBehaviour
             Gun3.SetActive(false);
             Astro3.SetActive(false);
             Book3.SetActive(true);
+        }
+
+        //NEW NOT RIGGED ROW
+        //Row1
+        if (row1 == 4)
+        {
+            Gun1.SetActive(false);
+            Astro1.SetActive(false);
+            Book1.SetActive(true);
+        }
+
+        if (row1 == 5)
+        {
+            Gun1.SetActive(false);
+            Astro1.SetActive(true);
+            Book1.SetActive(false);
+        }
+
+        if (row1 == 6)
+        {
+            Gun1.SetActive(true);
+            Astro1.SetActive(false);
+            Book1.SetActive(false);
+        }
+
+        //Row2
+        if (row2 == 4)
+        {
+            Gun2.SetActive(false);
+            Astro2.SetActive(false);
+            Book2.SetActive(true);
+        }
+
+        if (row2 == 5)
+        {
+            Gun2.SetActive(false);
+            Astro2.SetActive(true);
+            Book2.SetActive(false);
+        }
+
+        if (row2 == 6)
+        {
+            Gun2.SetActive(true);
+            Astro2.SetActive(false);
+            Book2.SetActive(false);
+        }
+
+        //row3
+        if (row3 == 4)
+        {
+            Gun3.SetActive(false);
+            Astro3.SetActive(false);
+            Book3.SetActive(true);
+        }
+
+        if (row3 == 5)
+        {
+            Gun3.SetActive(false);
+            Astro3.SetActive(true);
+            Book3.SetActive(false);
+        }
+
+        if (row3 == 6)
+        {
+            Gun3.SetActive(true);
+            Astro3.SetActive(false);
+            Book3.SetActive(false);
         }
     }
 }
